@@ -40,3 +40,7 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local Sites deployment packages
+/.sites-package*/
+/hybrid-bottom-site*.tar.gz
