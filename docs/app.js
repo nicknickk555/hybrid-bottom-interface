@@ -1,6 +1,14 @@
 const $ = (id) => document.getElementById(id);
 let mode = "natural";
 
+const topbar = document.querySelector(".topbar");
+function updateNavigation() {
+  topbar.classList.toggle("isVisible", window.scrollY > window.innerHeight * .72);
+}
+window.addEventListener("scroll", updateNavigation, { passive: true });
+window.addEventListener("resize", updateNavigation);
+updateNavigation();
+
 function updateModel() {
   const climate = $("climate").value;
   const material = $("material").value;
