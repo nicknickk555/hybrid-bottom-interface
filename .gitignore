@@ -44,3 +44,4 @@ next-env.d.ts
 # local Sites deployment packages
 /.sites-package*/
 /hybrid-bottom-site*.tar.gz
+/pages-preview*.log
