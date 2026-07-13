@@ -9,7 +9,7 @@ const zones = [
 ];
 
 export default function Home() {
-  const [navVisible, setNavVisible] = useState(false);
+  const [portalOpen, setPortalOpen] = useState(true);
   const [climate, setClimate] = useState("kyiv");
   const [material, setMaterial] = useState("sf20");
   const [airflow, setAirflow] = useState(0.7);
@@ -17,15 +17,14 @@ export default function Home() {
   const [mode, setMode] = useState("natural");
 
   useEffect(() => {
-    const updateNavigation = () => setNavVisible(window.scrollY > window.innerHeight * 0.72);
-    updateNavigation();
-    window.addEventListener("scroll", updateNavigation, { passive: true });
-    window.addEventListener("resize", updateNavigation);
-    return () => {
-      window.removeEventListener("scroll", updateNavigation);
-      window.removeEventListener("resize", updateNavigation);
-    };
+    document.documentElement.classList.add("portalLocked");
+    return () => document.documentElement.classList.remove("portalLocked");
   }, []);
+
+  const dismissPortal = () => {
+    document.documentElement.classList.remove("portalLocked");
+    setPortalOpen(false);
+  };
 
   const result = useMemo(() => {
     const climateBase = climate === "kyiv" ? 1 : climate === "london" ? 0.77 : 0.92;
@@ -40,23 +39,23 @@ export default function Home() {
 
   return (
     <main>
-      <section className="portal" id="portal" aria-labelledby="portal-title">
+      <section className={`portal ${portalOpen ? "isOpen" : "isClosed"}`} id="portal" aria-labelledby="portal-title" aria-hidden={!portalOpen}>
         <img className="portalImage" src="/og.png" alt="" aria-hidden="true" />
         <div className="portalSemantics">
           <h1 id="portal-title">Hybrid Bottom</h1>
           <p>Design the pause before the branch.</p>
         </div>
         <div className="portalControls">
-          <a className="portalEnter" href="#concept">Enter the system <span aria-hidden="true">↓</span></a>
+          <a className="portalEnter" href="#concept" onClick={dismissPortal}>Enter the system <span aria-hidden="true">↓</span></a>
           <nav className="portalNav" aria-label="Explore the three sections">
-            <a href="#concept"><span>01</span> Concept</a>
-            <a href="#architecture"><span>02</span> Architecture</a>
-            <a href="#model"><span>03</span> Model</a>
+            <a href="#concept" onClick={dismissPortal}><span>01</span> Concept</a>
+            <a href="#architecture" onClick={dismissPortal}><span>02</span> Architecture</a>
+            <a href="#model" onClick={dismissPortal}><span>03</span> Model</a>
           </nav>
         </div>
       </section>
 
-      <header className={`topbar ${navVisible ? "isVisible" : ""}`}>
+      <header className={`topbar ${portalOpen ? "" : "isVisible"}`}>
         <a className="brand" href="#concept"><span className="brandMark">HB</span><span>Hybrid Bottom<br/><small>Root interface system</small></span></a>
         <nav aria-label="Primary navigation"><a href="#concept">01 Concept</a><a href="#architecture">02 Architecture</a><a href="#model">03 Model</a></nav>
         <a className="topCta" href="#model">Explore model <span>↘</span></a>

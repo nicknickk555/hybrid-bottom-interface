@@ -2,12 +2,15 @@ const $ = (id) => document.getElementById(id);
 let mode = "natural";
 
 const topbar = document.querySelector(".topbar");
-function updateNavigation() {
-  topbar.classList.toggle("isVisible", window.scrollY > window.innerHeight * .72);
+const portal = document.querySelector(".portal");
+function dismissPortal() {
+  document.documentElement.classList.remove("portalLocked");
+  portal.classList.remove("isOpen");
+  portal.classList.add("isClosed");
+  portal.setAttribute("aria-hidden", "true");
+  topbar.classList.add("isVisible");
 }
-window.addEventListener("scroll", updateNavigation, { passive: true });
-window.addEventListener("resize", updateNavigation);
-updateNavigation();
+portal.querySelectorAll("a[href^='#']").forEach((link) => link.addEventListener("click", dismissPortal));
 
 function updateModel() {
   const climate = $("climate").value;
