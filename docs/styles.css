@@ -47,3 +47,8 @@ h1,h2{font-size:clamp(52px,6.3vw,92px);margin:24px 0}
 .topbar.isVisible{transform:translateY(0);visibility:visible;pointer-events:auto;transition:transform .38s ease,visibility 0s}
 @media(max-width:900px){.portalImage{object-fit:contain;object-position:center center}.portal:after{background:linear-gradient(180deg,rgba(2,17,31,.08),transparent 65%,rgba(2,17,31,.92) 100%)}.portalControls{left:24px;right:24px;bottom:28px;display:block}.portalEnter{width:100%;min-width:0}.portalNav{justify-content:space-between;gap:8px;margin-top:16px}.portalNav a{font-size:8px}.portalNav a span{display:block;margin:0 0 4px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.portal,.portalEnter,.topbar{transition:none}}
+
+/* Keep the architecture cards and formula strip in separate visual layers. */
+.architectureGrid>*{height:auto;min-height:440px;overflow:hidden}
+.formulaStrip{position:relative;z-index:2}
+@media(max-width:900px){.architectureGrid>*{min-height:400px}}

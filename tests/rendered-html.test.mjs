@@ -44,4 +44,6 @@ test("keeps the portal outside page flow in both published versions", async () =
   assert.match(staticHtml, /class="portal isOpen"/);
   assert.match(staticJs, /function dismissPortal\(\)/);
   assert.match(staticJs, /topbar\.classList\.add\("isVisible"\)/);
+  assert.match(page, /Go to model/);
+  assert.match(css, /\.architectureGrid>\*\{height:auto;min-height:440px;overflow:hidden\}/);
 });
