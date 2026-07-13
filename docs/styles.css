@@ -52,3 +52,7 @@ h1,h2{font-size:clamp(52px,6.3vw,92px);margin:24px 0}
 .architectureGrid>*{height:auto;min-height:440px;overflow:hidden}
 .formulaStrip{position:relative;z-index:2}
 @media(max-width:900px){.architectureGrid>*{min-height:400px}}
+
+/* Mobile composition and overflow control. */
+@media(max-width:900px){.heroGrid,.heroGrid>*,.architectureGrid,.architectureGrid>*,.modelGrid,.modelGrid>*,.results,.results>*{min-width:0}.actions{flex-wrap:wrap}.button{min-width:0;flex:1 1 150px}.systemGraphic{width:100%}.portalImage{width:102%;height:auto;max-width:none;left:50%;right:auto;top:9vh;bottom:auto;transform:translateX(-50%);object-fit:contain;object-position:center top}.mechanism{min-height:430px}.topbar{padding-left:16px;padding-right:16px}}
+.screen{scroll-margin-top:0}
