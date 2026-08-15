@@ -83,6 +83,13 @@
   const modelNote = document.querySelector('#model-note');
   const rings = document.querySelector('.rings');
   const modeButtons = [...document.querySelectorAll('.mode')];
+  const formatButtons = [...document.querySelectorAll('.format-card')];
+  const formatName = document.querySelector('#format-name');
+  const formatDimensions = document.querySelector('#format-dimensions');
+  const bottomArea = document.querySelector('#bottom-area');
+  const typarArea = document.querySelector('#typar-area');
+  const openRing = document.querySelector('#open-ring');
+  const typarDiameter = document.querySelector('#typar-diameter');
 
   const climates = {
     kyiv: { rh: 58, air: 1, name: 'continental conditions' },
@@ -94,22 +101,30 @@
     SF20: { factor: 1, copy: 'SF20' },
     SF32: { factor: 1.34, copy: 'SF32' }
   };
+  const formats = {
+    R51: { diameter: 102, height: 100, bottomArea: 81.7, typarArea: 60.7, openRing: 21, typarDiameter: 88, scale: .72, renewal: 1.12 },
+    R76: { diameter: 152, height: 150, bottomArea: 181.5, typarArea: 134.8, openRing: 46.6, typarDiameter: 131, scale: .84, renewal: 1.05 },
+    R108: { diameter: 216, height: 200, bottomArea: 366.4, typarArea: 272.3, openRing: 94.2, typarDiameter: 186, scale: 1, renewal: 1 },
+    R146: { diameter: 292, height: 260, bottomArea: 669.7, typarArea: 497.6, openRing: 172.1, typarDiameter: 252, scale: 1.1, renewal: .96 }
+  };
   let airflowMode = 'natural';
+  let activeFormat = 'R108';
 
   function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
 
   function calculate() {
     const climateData = climates[climate.value];
     const membraneData = membranes[membrane.value];
+    const formatData = formats[activeFormat];
     const rh = Number(humidity.value);
     const gap = Number(clearance.value);
     const modeFactor = airflowMode === 'forced' ? 1.28 : 1;
     const gapAir = .2 + .6 * Math.tanh(gap / 10);
-    const air = clamp(gapAir * climateData.air * modeFactor * 1.18, .24, 1.28);
+    const air = clamp(gapAir * climateData.air * modeFactor * formatData.renewal * 1.18, .24, 1.38);
     const humidityDrive = Math.max(.08, 1 - rh / 100);
     const dryHours = Math.max(3, 8.6 * membraneData.factor / (humidityDrive * air * 2.35));
     const delayMinutes = Math.round(dryHours * 12);
-    const openShare = .26;
+    const openShare = formatData.openRing / formatData.bottomArea;
     const prune = clamp(.25 + openShare * 1.15 + air * .34 - dryHours * .012, .12, .96);
     const dryingIndex = Math.round(clamp(air * 110, 18, 130));
     const branching = Math.round(prune * 100);
@@ -123,9 +138,28 @@
     dryingBar.style.width = `${clamp(dryingIndex / 1.3, 8, 100)}%`;
     branchingBar.style.width = `${branching}%`;
     responseLabel.textContent = label;
-    modelNote.textContent = `${membraneData.copy} and ${airflowMode} airflow create a ${label.replace(' response', '').replace(' adaptation', '')} drying window for ${climateData.name}.`;
-    if (rings) rings.style.setProperty('--ring-speed', `${clamp(3.2 - air * 1.25, 1.3, 3)}s`);
+    formatName.textContent = activeFormat;
+    formatDimensions.textContent = `Ø${formatData.diameter} · h${formatData.height} mm`;
+    bottomArea.textContent = `${formatData.bottomArea.toFixed(1)} cm²`;
+    typarArea.textContent = `${formatData.typarArea.toFixed(1)} cm²`;
+    openRing.textContent = `${formatData.openRing.toFixed(1)} cm²`;
+    typarDiameter.textContent = `${formatData.typarDiameter} mm`;
+    modelNote.textContent = `${activeFormat} geometry, ${membraneData.copy} and ${airflowMode} airflow create a ${label.replace(' response', '').replace(' adaptation', '')} comparative drying window for ${climateData.name}.`;
+    if (rings) {
+      rings.style.setProperty('--ring-speed', `${clamp(3.2 - air * 1.25, 1.3, 3)}s`);
+      rings.style.setProperty('--format-scale', formatData.scale);
+    }
   }
+
+  formatButtons.forEach(button => button.addEventListener('click', () => {
+    activeFormat = button.dataset.format;
+    formatButtons.forEach(item => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    calculate();
+  }));
 
   modeButtons.forEach(button => button.addEventListener('click', () => {
     airflowMode = button.dataset.mode;

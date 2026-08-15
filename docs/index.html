@@ -100,6 +100,27 @@
           <p>Geometry creates the pathway. Typar and climate change how long the root remains in the contact zone before local drying triggers branching.</p>
         </div>
 
+        <div class="format-selector reveal" aria-labelledby="format-title">
+          <div class="format-intro">
+            <span id="format-title">Physical format</span>
+            <small>Choose the vessel geometry before tuning the interface.</small>
+          </div>
+          <div class="format-options" role="group" aria-label="Physical vessel formats">
+            <button type="button" class="format-card" data-format="R51" aria-pressed="false">
+              <span>01</span><b>R51</b><small>Ø102 · h100 mm</small>
+            </button>
+            <button type="button" class="format-card" data-format="R76" aria-pressed="false">
+              <span>02</span><b>R76</b><small>Ø152 · h150 mm</small>
+            </button>
+            <button type="button" class="format-card active" data-format="R108" aria-pressed="true">
+              <span>03</span><b>R108</b><small>Ø216 · h200 mm</small>
+            </button>
+            <button type="button" class="format-card" data-format="R146" aria-pressed="false">
+              <span>04</span><b>R146</b><small>Ø292 · h260 mm</small>
+            </button>
+          </div>
+        </div>
+
         <div class="model-grid reveal">
           <form class="controls" id="model-controls">
             <label>
@@ -135,7 +156,12 @@
             </label>
           </form>
 
-          <div class="zone-model" aria-label="Three concentric Venturi zones">
+          <div class="zone-model" aria-label="Selected physical format and three concentric Venturi zones">
+            <div class="format-readout" aria-live="polite">
+              <span>Selected vessel</span>
+              <b id="format-name">R108</b>
+              <small id="format-dimensions">Ø216 · h200 mm</small>
+            </div>
             <div class="rings" aria-hidden="true">
               <div class="ring peripheral"><i></i></div>
               <div class="ring transition"><i></i></div>
@@ -146,6 +172,12 @@
               <span><i class="z1"></i><b>D1 Centre</b><small>soft adaptation</small></span>
               <span><i class="z2"></i><b>D2 Transition</b><small>balanced response</small></span>
               <span><i class="z3"></i><b>D3 Periphery</b><small>decisive pruning</small></span>
+            </div>
+            <div class="physical-metrics" aria-label="Selected physical geometry">
+              <span><small>Bottom area</small><b id="bottom-area">366.4 cm²</b></span>
+              <span><small>Typar area</small><b id="typar-area">272.3 cm²</b></span>
+              <span><small>Open ring</small><b id="open-ring">94.2 cm²</b></span>
+              <span><small>Typar Ø</small><b id="typar-diameter">186 mm</b></span>
             </div>
           </div>
 
