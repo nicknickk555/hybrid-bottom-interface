@@ -37,12 +37,20 @@ test("publishes the three-screen GitHub Pages story with synchronized pruning an
 
   assert.equal(staticHtml.match(/data-screen=/g)?.length, 3);
   assert.equal(staticHtml.match(/data-process=/g)?.length, 5);
+  assert.equal(staticHtml.match(/data-format=/g)?.length, 4);
+  assert.match(staticHtml, /R51[\s\S]*R76[\s\S]*R108[\s\S]*R146/);
+  assert.match(staticHtml, /id="bottom-area"/);
+  assert.match(staticHtml, /id="typar-area"/);
+  assert.match(staticHtml, /id="open-ring"/);
   assert.match(staticHtml, /assets\/hybrid-bottom-cross-section\.svg/);
   assert.match(staticHtml, /Apex pruning/);
   assert.match(staticHtml, /Lateral response/);
   assert.match(staticJs, /Local micro-drying/);
   assert.match(staticJs, /Apex pruning/);
   assert.match(staticJs, /Lateral branching/);
+  assert.match(staticJs, /R51: \{ diameter: 102, height: 100/);
+  assert.match(staticJs, /R146: \{ diameter: 292, height: 260/);
+  assert.match(staticJs, /formatData\.openRing \/ formatData\.bottomArea/);
   assert.match(css, /prefers-reduced-motion/);
   assert.match(crossSection, /class="root main-root"/);
   assert.match(crossSection, /class="prune-burst"/);
