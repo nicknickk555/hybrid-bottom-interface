@@ -1,97 +1,174 @@
 <!doctype html>
-<html lang="en" class="portalLocked">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Hybrid Bottom — Controlled Root Interface</title>
-  <meta name="description" content="A tunable root-pruning interface driven by geometry, membrane and airflow.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071f35">
+  <meta name="description" content="Hybrid Bottom — a controlled root interface combining Typar, three Venturi zones and an Air-Bag microclimate.">
   <meta property="og:title" content="Hybrid Bottom — Controlled Root Interface">
   <meta property="og:description" content="Design the pause before the branch.">
   <meta property="og:image" content="og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Hybrid Bottom — Controlled Root Interface</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main>
-  <section class="portal isOpen" id="portal" aria-labelledby="portal-title">
-    <img class="portalImage" src="og.png" alt="" aria-hidden="true">
-    <div class="portalSemantics">
-      <h1 id="portal-title">Hybrid Bottom</h1>
-      <p>Design the pause before the branch.</p>
-    </div>
-    <div class="portalControls">
-      <a class="portalEnter" href="#concept">Enter the system <span aria-hidden="true">↓</span></a>
-      <nav class="portalNav" aria-label="Explore the three sections">
-        <a href="#concept"><span>01</span> Concept</a>
-        <a href="#architecture"><span>02</span> Architecture</a>
-        <a href="#model"><span>03</span> Model</a>
-      </nav>
-    </div>
-  </section>
+  <a class="skip-link" href="#concept">Skip to content</a>
 
-  <header class="topbar">
-    <a class="brand" href="#concept"><span class="brandMark">HB</span><span>Hybrid Bottom<br><small>Root interface system</small></span></a>
-    <nav aria-label="Primary navigation"><a href="#concept">01 Concept</a><a href="#architecture">02 Architecture</a><a href="#model">03 Model</a></nav>
-    <a class="topCta" href="#model" aria-label="Go to the interactive model section">Go to model <span>↓</span></a>
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="#concept" aria-label="Hybrid Bottom home">
+      <span class="brand-mark">HB</span>
+      <span><b>HYBRID BOTTOM</b><small>ROOT INTERFACE SYSTEM</small></span>
+    </a>
+    <nav class="section-nav" aria-label="Story sections">
+      <a href="#concept" data-section-link="concept"><span>01</span> Concept</a>
+      <a href="#architecture" data-section-link="architecture"><span>02</span> Architecture</a>
+      <a href="#model" data-section-link="model"><span>03</span> Model</a>
+    </nav>
+    <div class="progress" aria-hidden="true"><i></i></div>
   </header>
 
-  <section class="screen hero" id="concept">
-    <div class="eyebrow"><span></span> Controlled root pruning interface</div>
-    <div class="heroGrid">
-      <div>
-        <h1>Design the pause<br>before the <em>branch.</em></h1>
-        <p class="lead">Hybrid Bottom controls how roots meet air. Geometry directs the flow, Typar moderates moisture, and micro-drying turns a passive container base into a tunable biological interface.</p>
-        <div class="actions"><a class="button primary" href="#architecture">See how it works <span>↓</span></a><a class="button ghost" href="#model">Open calculation</a></div>
-      </div>
-      <div class="systemGraphic" aria-label="Hybrid Bottom layered architecture">
-        <div class="airLabel">ROOT ZONE <b>moisture</b></div>
-        <div class="root rootA"></div><div class="root rootB"></div><div class="root rootC"></div>
-        <div class="soil"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="membrane"><span>TYPAR INTERFACE</span></div>
-        <div class="diffuserArray"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="flowLines">↑　↑　↑　↑　↑</div>
-        <div class="airBag">AIR-BAG <b>controlled airflow</b></div>
-        <div class="graphicNote"><strong>One system.<br>Three regulators.</strong><span>Geometry · Material · Climate</span></div>
-      </div>
-    </div>
-    <div class="principles">
-      <article><span>01</span><div><h3>Geometry</h3><p>Shapes the airflow path and places every root–membrane contact point.</p></div></article>
-      <article><span>02</span><div><h3>Typar interface</h3><p>Turns open-air shock into a measured, moisture-buffered transition.</p></div></article>
-      <article><span>03</span><div><h3>Controlled drying</h3><p>Sets the delay before turgor loss triggers lateral branching.</p></div></article>
-    </div>
-  </section>
+  <main>
+    <section class="screen hero-screen" id="concept" data-screen="concept" aria-labelledby="concept-title">
+      <div class="screen-inner hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Controlled root pruning interface</p>
+          <h1 id="concept-title">Design the pause<br>before the <em>branch.</em></h1>
+          <p class="lead">The side wall stops circling. The bottom decides whether roots accumulate, dry abruptly, or reorganise into a denser lateral system.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#architecture">See the interface <span>↓</span></a>
+            <a class="button secondary" href="#model">Open the model</a>
+          </div>
+          <ul class="principles" aria-label="Three system regulators">
+            <li><span>01</span><b>Geometry</b><small>directs the flow</small></li>
+            <li><span>02</span><b>Typar</b><small>controls the pause</small></li>
+            <li><span>03</span><b>Climate</b><small>sets the intensity</small></li>
+          </ul>
+        </div>
 
-  <section class="screen architecture" id="architecture">
-    <div class="sectionHead"><div><div class="eyebrow light"><span></span> Micro-drying diffuser</div><h2>The bevel is a<br><em>drying actuator.</em></h2></div><p>Each cell accelerates air beneath the membrane, creating a repeatable local drying spot exactly where a root reaches the interface.</p></div>
-    <div class="architectureGrid">
-      <div class="cellDiagram"><div class="dimension topDim">10 × 10 mm</div><div class="dimension sideDim">8 mm</div><div class="dimension bottomDim">20 × 20 mm</div><div class="cellTop"></div><div class="cellBody"><span>32°</span></div><div class="cellBase"></div><div class="airArrows">↑　 ↑　 ↑</div><div class="spot">LOCAL DRYING<br><b>SPOT</b></div></div>
-      <div class="mechanism"><div class="metricHero"><small>FLOW ACCELERATION</small><strong>+18<sup>%</sup></strong><p>at the calculated 32° bevel</p></div><ol><li><b>Air enters</b><span>from the ventilated cavity below</span></li><li><b>Flow accelerates</b><span>through the narrowing cell</span></li><li><b>Typar dries locally</b><span>at the root contact point</span></li><li><b>Root branches</b><span>after controlled turgor loss</span></li></ol></div>
-      <div class="modeCard"><span class="cardLabel">OPERATING MODES</span><div class="modeVisual"><i></i><i></i><i></i><i></i><i></i></div><h3>Same bottom.<br>Two intensities.</h3><div class="modeRow"><b>Natural draft</b><span>Slow, climate-led drying</span></div><div class="modeRow active"><b>Forced airflow</b><span>Fast, uniform response</span></div></div>
-    </div>
-    <div class="formulaStrip"><span>BEVEL ANGLE</span><b>θ = arctan ((20 − 10) / (2 × 8)) ≈ 32°</b><span>EFFECTIVE FLOW</span><b>u<sub>eff</sub> ≈ u₀ / cos(θ) ≈ 1.18 · u₀</b></div>
-  </section>
-
-  <section class="screen model" id="model">
-    <div class="sectionHead dark"><div><div class="eyebrow"><span></span> Live tuning model</div><h2>From climate inputs<br>to <em>root response.</em></h2></div><p>Test how membrane, humidity and airflow change the delay before pruning and the expected lateral root density.</p></div>
-    <div class="modelGrid">
-      <aside class="controls">
-        <label>Climate<select id="climate"><option value="kyiv">Kyiv · continental</option><option value="london">London · humid</option><option value="optimized">Optimized greenhouse</option></select></label>
-        <label>Membrane<select id="material"><option value="sf20">Typar SF20</option><option value="sf32">Typar SF32</option><option value="sf16">Typar SF16</option></select></label>
-        <div class="segmented"><button class="on" data-mode="natural">Natural</button><button data-mode="forced">Forced</button></div>
-        <label>Relative humidity <output id="humidityOut">62%</output><input id="humidity" type="range" min="40" max="90" value="62"></label>
-        <label>Airflow <output id="airflowOut">0.7 m/s</output><input id="airflow" type="range" min="0.1" max="1.5" step="0.1" value="0.7"></label>
-        <p class="controlNote">Model is comparative. Physical validation is required before production specification.</p>
-      </aside>
-      <div class="results">
-        <div class="resultTop"><div><small>CONTROLLED DELAY</small><strong><span id="delay">118</span><sup>min</sup></strong><span id="status" class="status">soft adaptation</span></div><div id="dial" class="dial"><b id="dryingIndex">100</b><small>drying<br>index</small></div></div>
-        <div class="bars"><div class="barHead"><b>Expected lateral roots / day</b><span>Relative scale · total = 100%</span></div><div class="barPlot"><div class="barItem"><i id="centerBar"></i><b id="centerValue">1.51</b><span>Membrane center<br><span id="centerPct">19%</span></span></div><div class="barItem ring"><i id="ringBar"></i><b id="ringValue">6.56</b><span>Open ring<br><span id="ringPct">81%</span></span></div><div class="barItem total"><i style="height:145px"></i><b id="totalValue">8.07</b><span>Total response<br>100%</span></div></div></div>
-        <div class="modelReadout"><span>WHY THIS RESULT</span><p id="readout">62% RH and 0.7 m/s airflow produce a <b>longer, adaptive</b> drying window with SF20.</p></div>
-        <div class="conclusion"><span>WORKING HYPOTHESIS</span><p>Architecture creates the breakthrough.<br><b>Material and airflow tune it.</b></p></div>
+        <div class="hero-system reveal" aria-hidden="true">
+          <div class="hero-soil">
+            <i class="root-thread r1"></i><i class="root-thread r2"></i><i class="root-thread r3"></i><i class="root-thread r4"></i>
+          </div>
+          <div class="mesh-plane"></div>
+          <div class="venturi-grid">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="hero-flow"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
       </div>
-    </div>
-    <footer><span>HYBRID BOTTOM · CONCEPT MODEL</span><span>VENTURI CARPET TECHNOLOGY · 2026</span></footer>
-  </section>
-</main>
-<script src="app.js"></script>
+      <p class="scroll-cue" aria-hidden="true">Scroll to follow the root <span>↓</span></p>
+    </section>
+
+    <section class="screen architecture-screen" id="architecture" data-screen="architecture" aria-labelledby="architecture-title">
+      <div class="screen-inner architecture-layout">
+        <div class="section-heading reveal">
+          <p class="eyebrow">The biological sequence</p>
+          <h2 id="architecture-title">One interface.<br><em>Five controlled moments.</em></h2>
+          <p>The animation follows the complete cycle: approach, contact, moisture-buffered pause, local micro-drying and apex pruning. Lateral roots appear only after the tip is arrested at Typar.</p>
+          <ol class="process-steps" aria-label="Root pruning animation sequence">
+            <li data-process="grow"><span>01</span><b>Root approaches</b><small>The apex grows toward the membrane.</small></li>
+            <li data-process="contact"><span>02</span><b>Typar contact</b><small>Moisture softens the transition.</small></li>
+            <li data-process="dry"><span>03</span><b>Venturi drying</b><small>Focused airflow renews the boundary layer.</small></li>
+            <li data-process="prune"><span>04</span><b>Apex pruning</b><small>The active tip is arrested at the interface.</small></li>
+            <li data-process="branch"><span>05</span><b>Lateral response</b><small>Branching redistributes the root system.</small></li>
+          </ol>
+        </div>
+
+        <figure class="system-figure reveal">
+          <div class="figure-frame">
+            <img src="assets/hybrid-bottom-cross-section.svg" alt="Animated cross-section of roots reaching Typar above three mirrored pairs of Venturi tubes and an Air-Bag cavity">
+            <div class="figure-status" aria-live="polite"><i></i><span>Root approach</span></div>
+          </div>
+          <figcaption>
+            <span><i class="swatch typar"></i><b>Typar</b> — transfer and timing layer</span>
+            <span><i class="swatch bottom"></i><b>Bottom</b> — D1, D2 and D3 Venturi zones</span>
+            <span><i class="swatch airbag"></i><b>Air‑Bag</b> — ventilated microclimate</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="screen model-screen" id="model" data-screen="model" aria-labelledby="model-title">
+      <div class="screen-inner model-shell">
+        <div class="model-heading reveal">
+          <div>
+            <p class="eyebrow">Comparative tuning model</p>
+            <h2 id="model-title">Tune the delay.<br><em>Keep the architecture.</em></h2>
+          </div>
+          <p>Geometry creates the pathway. Typar and climate change how long the root remains in the contact zone before local drying triggers branching.</p>
+        </div>
+
+        <div class="model-grid reveal">
+          <form class="controls" id="model-controls">
+            <label>
+              <span>Climate</span>
+              <select id="climate">
+                <option value="kyiv">Kyiv · continental</option>
+                <option value="london">London · humid</option>
+                <option value="greenhouse">Optimised greenhouse</option>
+              </select>
+            </label>
+            <label>
+              <span>Membrane</span>
+              <select id="membrane">
+                <option value="SF20">Typar SF20 · balanced</option>
+                <option value="SF32">Typar SF32 · longer window</option>
+                <option value="SF16">Typar SF16 · faster reference</option>
+              </select>
+            </label>
+
+            <fieldset class="mode-field">
+              <legend>Airflow mode</legend>
+              <button type="button" class="mode active" data-mode="natural" aria-pressed="true">Natural</button>
+              <button type="button" class="mode" data-mode="forced" aria-pressed="false">Forced</button>
+            </fieldset>
+
+            <label class="range-field">
+              <span>Relative humidity <output id="rh-output">58%</output></span>
+              <input id="humidity" type="range" min="40" max="95" step="1" value="58">
+            </label>
+            <label class="range-field">
+              <span>Air‑Bag clearance <output id="gap-output">20 mm</output></span>
+              <input id="clearance" type="range" min="5" max="50" step="1" value="20">
+            </label>
+          </form>
+
+          <div class="zone-model" aria-label="Three concentric Venturi zones">
+            <div class="rings" aria-hidden="true">
+              <div class="ring peripheral"><i></i></div>
+              <div class="ring transition"><i></i></div>
+              <div class="ring centre"><i></i></div>
+              <div class="ring-flow f1"></div><div class="ring-flow f2"></div><div class="ring-flow f3"></div>
+            </div>
+            <div class="zone-legend">
+              <span><i class="z1"></i><b>D1 Centre</b><small>soft adaptation</small></span>
+              <span><i class="z2"></i><b>D2 Transition</b><small>balanced response</small></span>
+              <span><i class="z3"></i><b>D3 Periphery</b><small>decisive pruning</small></span>
+            </div>
+          </div>
+
+          <div class="outputs">
+            <div class="primary-output">
+              <span>Controlled delay</span>
+              <strong id="delay-value">114<small>min</small></strong>
+              <b id="response-label">balanced adaptation</b>
+            </div>
+            <div class="metric"><span>Drying index</span><b id="drying-value">101</b><i><em id="drying-bar"></em></i></div>
+            <div class="metric"><span>Branching response</span><b id="branching-value">75%</b><i><em id="branching-bar"></em></i></div>
+            <p class="model-note" id="model-note">SF20 and natural airflow create a measured drying window for continental conditions.</p>
+          </div>
+        </div>
+
+        <footer class="final-statement">
+          <b>Geometry shapes the pathway. Typar shapes the pause. Climate shapes the response.</b>
+          <span>Comparative engineering model · physical validation required before production specification.</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
