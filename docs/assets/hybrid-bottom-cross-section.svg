@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">Hybrid Bottom cross-section</title>
+  <desc id="desc">Text-free technical cross-section of a root zone, Typar membrane, three mirrored pairs of Venturi tubes, an Air-Bag cavity, and a raised stand.</desc>
+
+  <defs>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b19a59"/>
+      <stop offset="1" stop-color="#846d2f"/>
+    </linearGradient>
+    <linearGradient id="bottom-body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#568c36"/>
+      <stop offset="1" stop-color="#315f23"/>
+    </linearGradient>
+    <linearGradient id="air-bag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7fcff"/>
+      <stop offset="1" stop-color="#dbefff"/>
+    </linearGradient>
+    <linearGradient id="venturi-air" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#84c8ef" stop-opacity=".12"/>
+      <stop offset=".58" stop-color="#5aa7db" stop-opacity=".44"/>
+      <stop offset="1" stop-color="#3a8dcc" stop-opacity=".78"/>
+    </linearGradient>
+    <pattern id="typar" width="10" height="8" patternUnits="userSpaceOnUse">
+      <rect width="10" height="8" fill="#dbe8ce"/>
+      <path d="M0 2H10M0 6H10M2.5 0V8M7.5 0V8" fill="none" stroke="#4f725b" stroke-width=".9" opacity=".86"/>
+    </pattern>
+    <pattern id="air-lines" width="20" height="17" patternUnits="userSpaceOnUse">
+      <path d="M0 6C5 1 15 11 20 6M0 13C5 8 15 18 20 13" fill="none" stroke="#79b7e9" stroke-width="1.4" opacity=".68"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.2" refY="5" markerWidth="5.2" markerHeight="5.2" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#318dcc"/>
+    </marker>
+    <filter id="shadow" x="-15%" y="-20%" width="130%" height="155%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#061a2d" flood-opacity=".15"/>
+    </filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="root-clip"><rect x="95" y="38" width="810" height="275" rx="34"/></clipPath>
+  </defs>
+
+  <style>
+    .root{fill:none;stroke:#f1e5b6;stroke-linecap:round;opacity:.78}
+    .main-root{stroke-dasharray:280;stroke-dashoffset:280;animation:root-grow 7.2s ease-in-out infinite}
+    .lateral{stroke-dasharray:125;stroke-dashoffset:125;opacity:0;animation:branch-grow 7.2s ease-in-out infinite}
+    .root-tip{fill:#f39a51;filter:url(#glow);transform-box:fill-box;transform-origin:center;opacity:0;animation:tip-cycle 7.2s ease-in-out infinite}
+    .flow{fill:none;stroke:#318dcc;stroke-width:var(--flow-width,4);stroke-linecap:round;stroke-dasharray:12 11;marker-end:url(#arrow);animation:flow var(--flow-speed,2.4s) linear infinite}
+    .flow.d1{--flow-width:3.7;--flow-speed:2.8s}.flow.d2{--flow-width:4.2;--flow-speed:2.35s}.flow.d3{--flow-width:4.8;--flow-speed:1.95s}
+    .delay-1{animation-delay:-.35s}.delay-2{animation-delay:-.7s}.delay-3{animation-delay:-1.05s}.delay-4{animation-delay:-1.4s}.delay-5{animation-delay:-1.75s}
+    .contact{fill:none;stroke:#7fd5df;stroke-width:3;opacity:0;transform-box:fill-box;transform-origin:center;animation:contact-cycle 7.2s ease-out infinite}
+    .prune-burst{fill:none;stroke:#ef603c;stroke-width:2.4;stroke-linejoin:round;opacity:0;transform-box:fill-box;transform-origin:center;animation:prune-burst 7.2s ease-out infinite}
+    @keyframes flow{to{stroke-dashoffset:-69}}
+    @keyframes root-grow{0%,8%{stroke-dashoffset:280}40%,92%{stroke-dashoffset:0}100%{stroke-dashoffset:-280}}
+    @keyframes tip-cycle{0%,34%{opacity:0;transform:scale(.55)}40%,52%{opacity:1;transform:scale(1)}58%{opacity:.95;transform:scale(1.35)}66%,100%{opacity:0;transform:scale(.12)}}
+    @keyframes contact-cycle{0%,42%{opacity:0;transform:scale(.25)}49%{opacity:.9;transform:scale(.55)}62%{opacity:.55;transform:scale(1.35)}70%,100%{opacity:0;transform:scale(1.8)}}
+    @keyframes prune-burst{0%,53%{opacity:0;transform:scale(.2) rotate(0)}59%{opacity:1;transform:scale(1.05) rotate(8deg)}66%{opacity:.72;transform:scale(.82) rotate(-5deg)}72%,100%{opacity:0;transform:scale(1.35) rotate(0)}}
+    @keyframes branch-grow{0%,58%{stroke-dashoffset:125;opacity:0}64%{opacity:.78}84%,96%{stroke-dashoffset:0;opacity:.86}100%{stroke-dashoffset:-125;opacity:0}}
+    @media (prefers-reduced-motion:reduce){.flow,.main-root,.lateral,.root-tip,.contact,.prune-burst{animation:none}.main-root,.lateral{stroke-dashoffset:0;opacity:.78}.root-tip{opacity:.8}}
+  </style>
+
+  <rect width="1000" height="700" fill="#f5f2e9"/>
+
+  <g filter="url(#shadow)">
+    <rect x="75" y="25" width="20" height="610" rx="8" fill="#477a32" stroke="#28551e" stroke-width="3"/>
+    <rect x="905" y="25" width="20" height="610" rx="8" fill="#477a32" stroke="#28551e" stroke-width="3"/>
+    <rect x="95" y="38" width="810" height="275" rx="36" fill="url(#soil)" stroke="#705a16" stroke-width="4"/>
+  </g>
+
+  <g clip-path="url(#root-clip)">
+    <path class="root main-root" stroke-width="5" d="M238 120C260 174 260 242 312 319"/>
+    <path class="root main-root" stroke-width="5" d="M386 105C366 172 390 242 425 319"/>
+    <path class="root main-root" stroke-width="5" d="M614 105C634 172 610 242 575 319"/>
+    <path class="root main-root" stroke-width="5" d="M762 120C740 174 740 242 688 319"/>
+    <path class="root lateral" stroke-width="3" d="M278 244C246 250 226 272 214 299M393 238C360 244 341 267 331 296M607 238C640 244 659 267 669 296M722 244C754 250 774 272 786 299"/>
+    <path class="root lateral" stroke-width="2.5" d="M290 266C274 277 267 291 264 306M408 267C390 277 382 293 378 308M592 267C610 277 618 293 622 308M710 266C726 277 733 291 736 306"/>
+    <circle class="root-tip" cx="312" cy="317" r="5"/>
+    <circle class="root-tip" cx="425" cy="317" r="5"/>
+    <circle class="root-tip" cx="575" cy="317" r="5"/>
+    <circle class="root-tip" cx="688" cy="317" r="5"/>
+    <g transform="translate(312 318)"><path class="prune-burst" d="M0-14L3-5L12-9L7 0L14 5L4 5L2 14L-2 5L-12 9L-7 0L-14-5L-4-5Z"/></g>
+    <g transform="translate(425 318)"><path class="prune-burst" d="M0-14L3-5L12-9L7 0L14 5L4 5L2 14L-2 5L-12 9L-7 0L-14-5L-4-5Z"/></g>
+    <g transform="translate(575 318)"><path class="prune-burst" d="M0-14L3-5L12-9L7 0L14 5L4 5L2 14L-2 5L-12 9L-7 0L-14-5L-4-5Z"/></g>
+    <g transform="translate(688 318)"><path class="prune-burst" d="M0-14L3-5L12-9L7 0L14 5L4 5L2 14L-2 5L-12 9L-7 0L-14-5L-4-5Z"/></g>
+  </g>
+
+  <rect x="115" y="320" width="770" height="18" rx="4" fill="url(#typar)" stroke="#42634e" stroke-width="2.5"/>
+  <path d="M95 329H108M892 329H905" stroke="#dba62f" stroke-width="11" stroke-linecap="round"/>
+
+  <g>
+    <rect x="95" y="351" width="810" height="142" rx="34" fill="url(#bottom-body)" stroke="#28551e" stroke-width="4"/>
+    <path d="M155 363H845L816 480H184Z" fill="#234c20" opacity=".22"/>
+
+    <g fill="#f8fbfc" stroke="#cfe4ef" stroke-width="2">
+      <path d="M145 370H207L239 480H113Z"/>
+      <path d="M793 370H855L887 480H761Z"/>
+      <path d="M287 370H337L363 480H261Z"/>
+      <path d="M663 370H713L739 480H637Z"/>
+      <path d="M405 370H445L466 480H384Z"/>
+      <path d="M555 370H595L616 480H534Z"/>
+    </g>
+    <g fill="url(#venturi-air)" opacity=".78">
+      <path d="M145 370H207L239 480H113Z"/><path d="M793 370H855L887 480H761Z"/>
+      <path d="M287 370H337L363 480H261Z"/><path d="M663 370H713L739 480H637Z"/>
+      <path d="M405 370H445L466 480H384Z"/><path d="M555 370H595L616 480H534Z"/>
+    </g>
+    <g fill="none" stroke="#78b8e7" stroke-width="1.8" opacity=".62">
+      <path d="M128 397L221 480M151 371L238 475M777 397L870 480M800 371L887 475"/>
+      <path d="M274 399L346 480M294 372L362 476M650 399L722 480M670 372L738 476" stroke-dasharray="8 6"/>
+      <path d="M394 401L452 480M412 372L465 476M544 401L602 480M562 372L615 476" stroke-dasharray="4 5"/>
+    </g>
+  </g>
+
+  <g>
+    <rect x="95" y="508" width="810" height="120" rx="31" fill="url(#air-bag)" stroke="#579bd5" stroke-width="4"/>
+    <rect x="108" y="521" width="784" height="94" rx="22" fill="url(#air-lines)"/>
+  </g>
+
+  <g aria-label="Variable airflow through three Venturi zones">
+    <path class="flow d3" d="M176 607V525C176 493 176 451 176 407C176 378 176 356 176 331"/>
+    <path class="flow d2 delay-1" d="M312 588V522C312 489 312 449 312 406C312 377 312 355 312 331"/>
+    <path class="flow d1 delay-2" d="M425 568V517C425 485 425 446 425 404C425 376 425 354 425 331"/>
+    <path class="flow d1 delay-3" d="M575 568V517C575 485 575 446 575 404C575 376 575 354 575 331"/>
+    <path class="flow d2 delay-4" d="M688 588V522C688 489 688 449 688 406C688 377 688 355 688 331"/>
+    <path class="flow d3 delay-5" d="M824 607V525C824 493 824 451 824 407C824 378 824 356 824 331"/>
+    <g>
+      <circle class="contact" cx="312" cy="329" r="9"/><circle class="contact" cx="425" cy="329" r="8"/>
+      <circle class="contact" cx="575" cy="329" r="8"/><circle class="contact" cx="688" cy="329" r="9"/>
+    </g>
+  </g>
+
+  <rect x="55" y="650" width="890" height="44" rx="19" fill="#929292"/>
+</svg>

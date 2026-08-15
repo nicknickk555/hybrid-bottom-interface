@@ -27,23 +27,25 @@ test("server-renders the entry portal over exactly three screens", async () => {
   assert.ok(html.indexOf('class="portal isOpen"') < html.indexOf('id="concept"'));
 });
 
-test("keeps the portal outside page flow in both published versions", async () => {
-  const [page, css, staticHtml, staticJs] = await Promise.all([
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+test("publishes the three-screen GitHub Pages story with synchronized pruning animation", async () => {
+  const [css, staticHtml, staticJs, crossSection] = await Promise.all([
+    readFile(new URL("../github-pages-src/styles.css", import.meta.url), "utf8"),
     readFile(new URL("../github-pages-src/index.html", import.meta.url), "utf8"),
     readFile(new URL("../github-pages-src/app.js", import.meta.url), "utf8"),
+    readFile(new URL("../github-pages-src/assets/hybrid-bottom-cross-section.svg", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /const \[portalOpen, setPortalOpen\] = useState\(true\)/);
-  assert.match(page, /const dismissPortal/);
-  assert.match(css, /\.portal\{position:fixed/);
-  assert.match(css, /\.portal\.isClosed\{/);
-  assert.match(css, /\.portalLocked\{overflow:hidden\}/);
-  assert.match(staticHtml, /<html lang="en" class="portalLocked">/);
-  assert.match(staticHtml, /class="portal isOpen"/);
-  assert.match(staticJs, /function dismissPortal\(\)/);
-  assert.match(staticJs, /topbar\.classList\.add\("isVisible"\)/);
-  assert.match(page, /Go to model/);
-  assert.match(css, /\.architectureGrid>\*\{height:auto;min-height:440px;overflow:hidden\}/);
+  assert.equal(staticHtml.match(/data-screen=/g)?.length, 3);
+  assert.equal(staticHtml.match(/data-process=/g)?.length, 5);
+  assert.match(staticHtml, /assets\/hybrid-bottom-cross-section\.svg/);
+  assert.match(staticHtml, /Apex pruning/);
+  assert.match(staticHtml, /Lateral response/);
+  assert.match(staticJs, /Local micro-drying/);
+  assert.match(staticJs, /Apex pruning/);
+  assert.match(staticJs, /Lateral branching/);
+  assert.match(css, /prefers-reduced-motion/);
+  assert.match(crossSection, /class="root main-root"/);
+  assert.match(crossSection, /class="prune-burst"/);
+  assert.match(crossSection, /class="root lateral"/);
+  assert.doesNotMatch(crossSection, /<text\b/i);
 });
